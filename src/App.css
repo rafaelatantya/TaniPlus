@@ -1,0 +1,12 @@
+:root {
+  background-color: #f7f8f9;
+}
+
+.MainAppContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f7f8f9;
+}

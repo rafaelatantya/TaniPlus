@@ -1,0 +1,153 @@
+.LoginScreen {
+  width: 100%;
+  max-width: 412px;
+  min-height: 807px;
+  background: linear-gradient(180deg, #2FD173 0%, #229653 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.LoginHeader {
+  width: 309px;
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.LogoRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.LogoCircle {
+  width: 36px;
+  height: 36px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.LogoText {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f2f3f3;
+}
+
+.TitleRow {
+  width: 100%;
+}
+
+.GetStartedTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #f2f3f3;
+}
+
+.LoginCard {
+  width: 100%;
+  flex: 1;
+  background-color: #ffffff;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  padding: 32px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TabContainer {
+  width: 368px;
+  height: 40px;
+  background-color: #f7f8f9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.TabActive {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.TabTextActive {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #010503;
+}
+
+.TabInactive {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TabTextInactive {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5f6160;
+}
+
+.InputContainer {
+  width: 368px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.OptionsRow {
+  width: 368px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.ForgotPasswordLink {
+  display: flex;
+  align-items: center;
+}
+
+.LinkText {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #002045;
+  text-decoration: underline;
+}
+
+.PrimaryButton {
+  width: 368px;
+  height: 45px;
+  background: linear-gradient(90deg, #2FD173 0%, #229653 100%);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(34, 150, 83, 0.2);
+}
+
+.PrimaryButtonText {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}

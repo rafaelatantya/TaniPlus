@@ -1,0 +1,343 @@
+.DashboardScreen {
+  width: 100%;
+  max-width: 412px;
+  min-height: 917px;
+  background-color: #DCE0DE;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+}
+
+.DashboardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 16px;
+}
+
+.WelcomeText {
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.LogoutBtn {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 6px 12px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.LogoutText {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8A2408;
+}
+
+.RecommendationBanner {
+  height: 93px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.IconWrapper {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(34, 150, 83, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.LightBulbIcon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.BulbCircle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #229653;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.BulbBase {
+  width: 6px;
+  height: 4px;
+  border: 2px solid #229653;
+  border-top: none;
+  background-color: #ffffff;
+}
+
+.BannerTextContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.BannerTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #229653;
+  margin-bottom: 2px;
+}
+
+.BannerBody {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #474747;
+}
+
+.StatsGrid {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.StatsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.StatCard {
+  width: 48%;
+  height: 154px;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.CardGreen {
+  background-color: #2FD173;
+}
+
+.CardOrange {
+  background-color: #D84315;
+}
+
+.StatCardFull {
+  width: 100%;
+  height: 154px;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.CardBlue {
+  background-color: #B6D8EF;
+}
+
+.StatIconContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+}
+
+.CheckIcon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.CheckLine1 {
+  width: 4px;
+  height: 8px;
+  border-right: 2.5px solid #124F2C;
+  border-bottom: 2.5px solid #124F2C;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 5px;
+}
+
+.TriangleIcon {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 14px solid #8A2408;
+  position: relative;
+}
+
+.TriangleExclamation {
+  position: absolute;
+  top: 4px;
+  left: -1px;
+  width: 2px;
+  height: 5px;
+  background-color: #ffffff;
+}
+
+.RssIcon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+}
+
+.RssDot {
+  width: 4px;
+  height: 4px;
+  background-color: #324078;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.RssRing1 {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #324078;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.RssRing2 {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #324078;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.StatTextContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.StatNumber {
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.StatLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ColorGreenText {
+  color: #124F2C;
+}
+
+.CardOrange .ColorOrangeText {
+  color: #8A2408;
+}
+
+.ColorBlueText {
+  color: #324078;
+}
+
+.SectionTitleContainer {
+  margin-bottom: 12px;
+}
+
+.SectionTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.BoxListContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.BoxItemCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.BoxItemHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.BoxItemName {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.BoxStatusTag {
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.TagGreen {
+  background-color: rgba(47, 209, 115, 0.15);
+}
+
+.TagOrange {
+  background-color: rgba(216, 67, 21, 0.15);
+}
+
+.BoxStatusText {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.TextGreen {
+  color: #124F2C;
+}
+
+.TextOrange {
+  color: #8A2408;
+}
+
+.BoxItemDetails {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #5f6160;
+}
