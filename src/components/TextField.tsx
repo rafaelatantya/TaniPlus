@@ -1,4 +1,6 @@
 import { useCallback } from '@lynx-js/react';
+import iconPhone from '../icon_phone.svg';
+import iconKey from '../icon_key.svg';
 import './TextField.css';
 
 interface TextFieldProps {
@@ -27,16 +29,10 @@ export function TextField({
       <text className="TextFieldLabel">{label}</text>
       <view className="TextFieldInputWrapper">
         {icon === 'phone' && (
-          <view className="TextFieldIcon PhoneIcon">
-            <view className="PhoneIconBody" />
-            <view className="PhoneIconDot" />
-          </view>
+          <image src={iconPhone} className="TextFieldIcon" />
         )}
         {icon === 'key' && (
-          <view className="TextFieldIcon KeyIcon">
-            <view className="KeyIconRing" />
-            <view className="KeyIconBar" />
-          </view>
+          <image src={iconKey} className="TextFieldIcon" />
         )}
         <input
           type={type}
@@ -45,9 +41,6 @@ export function TextField({
           bindinput={onInput}
           className="TextFieldInput"
         />
-        <view className="TextFieldEndIcon">
-          <view className="ArrowRight" />
-        </view>
       </view>
     </view>
   );

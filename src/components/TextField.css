@@ -28,42 +28,6 @@
   width: 20px;
   height: 20px;
   margin-right: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.PhoneIconBody {
-  width: 12px;
-  height: 18px;
-  border: 2px solid #121212;
-  border-radius: 2px;
-}
-
-.PhoneIconDot {
-  width: 2px;
-  height: 2px;
-  background-color: #121212;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 3px;
-}
-
-.KeyIconRing {
-  width: 10px;
-  height: 10px;
-  border: 2px solid #121212;
-  border-radius: 50%;
-}
-
-.KeyIconBar {
-  width: 6px;
-  height: 2px;
-  background-color: #121212;
-  position: absolute;
-  bottom: 4px;
-  right: 2px;
 }
 
 .TextFieldInput {
@@ -75,20 +39,4 @@
   font-size: 14px;
   color: #121212;
   outline: none;
-}
-
-.TextFieldEndIcon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ArrowRight {
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #bebebe;
-  border-right: 2px solid #bebebe;
-  transform: rotate(45deg);
 }
