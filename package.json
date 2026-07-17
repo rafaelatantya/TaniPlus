@@ -1,24 +1,23 @@
 {
-  "name": "TaniPlus",
-  "version": "0.0.0",
+  "name": "taniplus",
+  "private": true,
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "build": "rspeedy build",
-    "dev": "rspeedy dev",
-    "preview": "rspeedy preview"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@lynx-js/react": "^0.123.0"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@lynx-js/preact-devtools": "5.0.1-20260624133547-6641319",
-    "@lynx-js/qrcode-rsbuild-plugin": "^0.6.0",
-    "@lynx-js/react-rsbuild-plugin": "^0.18.0",
-    "@lynx-js/rspeedy": "^0.16.0",
-    "@lynx-js/types": "4.0.0",
-    "@rsbuild/plugin-type-check": "1.3.4",
-    "@types/react": "^18.3.28",
-    "typescript": "~5.9.3"
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.4"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"

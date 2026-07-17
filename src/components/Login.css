@@ -1,33 +1,46 @@
 .LoginScreen {
+  position: relative;
   width: 100%;
   max-width: 412px;
-  min-height: 807px;
+  min-height: 959px;
   background: linear-gradient(180deg, #2FD173 0%, #229653 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 116px;
+  padding-top: 64px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.BackgroundImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
 }
 
 .LoginHeader {
-  width: 309px;
+  width: 100%;
+  padding: 0 22px;
   display: flex;
   flex-direction: column;
   margin-bottom: 48px;
+  box-sizing: border-box;
 }
 
 .LogoRow {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .LogoIcon {
-  width: 130px;
-  height: 36px;
-  margin-right: 12px;
+  width: 124px;
+  height: 29px;
 }
 
 .LogoText {
@@ -53,8 +66,8 @@
   width: 100%;
   flex: 1;
   background-color: #ffffff;
-  border-top-left-radius: 28px;
-  border-top-right-radius: 28px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
   padding: 32px 22px;
   display: flex;
   flex-direction: column;
@@ -102,7 +115,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #5f6160;
+  color: #ffffff;
 }
 
 .InputContainer {
@@ -119,7 +132,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 85px;
+  margin-bottom: 24px;
   box-sizing: border-box;
 }
 

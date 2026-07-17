@@ -1,249 +1,29 @@
-import { useCallback } from '@lynx-js/react';
-import iconPlantGreen from '../icon_plant_green.svg';
-import iconPlantOrange from '../icon_plant_orange.svg';
-import iconPlantGrey from '../icon_plant_grey.svg';
-import iconPlantBlue from '../icon_plant_blue.svg';
-
-import iconWaterBlue from '../icon_water_blue.svg';
-import iconWaterOrange from '../icon_water_orange.svg';
-import iconWaterGrey from '../icon_water_grey.svg';
-
-import iconTempGreen from '../icon_temp_green.svg';
-import iconTempOrange from '../icon_temp_orange.svg';
-import iconTempGrey from '../icon_temp_grey.svg';
-
-import iconArrowGreen from '../icon_arrow_green.svg';
-import iconArrowOrange from '../icon_arrow_orange.svg';
-import iconArrowGrey from '../icon_arrow_grey.svg';
-
-import iconCheckWhite from '../icon_check_white.svg';
-import iconDanger from '../icon_danger.svg';
-import iconRss from '../icon_rss.svg';
-import iconBulb from '../icon_bulb.svg';
-import './Dashboard.css';
-
-interface DashboardProps {
-  onNavigate: (page: 'login' | 'register' | 'dashboard' | 'details', data?: any) => void;
-}
-
-export function Dashboard({ onNavigate }: DashboardProps) {
-  const handleLogout = useCallback(() => {
-    onNavigate('login');
-  }, [onNavigate]);
-
-  const mockBoxes = [
-    { id: 1, name: 'Box 1 - Lahan Tomat', status: 'Perlu Perawatan', water: '65%', sprout: '50%', temp: '29°C' },
-    { id: 2, name: 'Box 2 - Lahan Cabai', status: 'Perlu Perawatan', water: '65%', sprout: '50%', temp: '29°C' },
-    { id: 3, name: 'Box 3 - Lahan Bawang', status: 'Bagus', water: '65%', sprout: '50%', temp: '29°C' },
-    { id: 4, name: 'Box 4 - Lahan Kentang', status: 'Bagus', water: '65%', sprout: '50%', temp: '29°C' },
-    { id: 5, name: 'Box 5 - Lahan Melon', status: 'Error', water: 'Error', sprout: 'Error', temp: 'Error' },
-  ];
-
-  return (
-    <scroll-view scroll-y={true} className="DashboardScreen">
-      <view className="DashboardHeader">
-        <view className="HeaderWelcomeArea">
-          <view className="WelcomeAvatar" />
-          <text className="WelcomeText">Halo Petani</text>
-        </view>
-        <view className="LogoutBtn" bindtap={handleLogout}>
-          <text className="LogoutText">Logout</text>
-        </view>
-      </view>
-
-      <view className="RecommendationBanner">
-        <view className="IconWrapper">
-          <image src={iconBulb} className="BannerBulbIcon" />
-        </view>
-        <view className="BannerTextContainer">
-          <text className="BannerTitle">Rekomendasi Pintar</text>
-          <text className="BannerBody">Box 2 perlu diperhatikan!!</text>
-        </view>
-      </view>
-
-      <view className="StatsGrid">
-        <view className="StatsRow">
-          <view className="StatCard CardGreen">
-            <view className="StatIconContainer StatIconContainerGreen">
-              <image src={iconCheckWhite} className="StatCardIcon" />
-            </view>
-            <view className="StatTextContainer">
-              <text className="StatNumber ColorGreenText">2</text>
-              <text className="StatLabel ColorGreenText">Wilayah Bagus</text>
-            </view>
-          </view>
-
-          <view className="StatCard CardOrange">
-            <view className="StatIconContainer StatIconContainerOrange">
-              <image src={iconDanger} className="StatCardIcon" />
-            </view>
-            <view className="StatTextContainer">
-              <text className="StatNumber ColorOrangeText">2</text>
-              <text className="StatLabel ColorOrangeText">Butuh Perawatan</text>
-            </view>
-          </view>
-        </view>
-
-        <view className="StatCardFull CardGrey">
-          <view className="StatIconContainer StatIconContainerGrey">
-            <image src={iconRss} className="StatCardIcon" />
-          </view>
-          <view className="StatTextContainer">
-            <text className="StatNumber ColorGreyText">1</text>
-            <text className="StatLabel ColorGreyText">Box Error</text>
-          </view>
-        </view>
-      </view>
-
-      <view className="SectionTitleContainer">
-        <text className="SectionTitle">Daftar Box</text>
-      </view>
-
-      <view className="BoxListContainer">
-        {mockBoxes.map((box) => {
-          // Determine status suffix for class names
-          const statusClass = box.status.replace(/\s+/g, '');
-
-          // Determine icons based on status
-          let plantIcon = iconPlantGreen;
-          let waterIcon = iconWaterBlue;
-          let sproutIcon = iconPlantBlue;
-          let tempIcon = iconTempGreen;
-          let arrowIcon = iconArrowGreen;
-
-          if (box.status === 'Perlu Perawatan') {
-            plantIcon = iconPlantOrange;
-            waterIcon = iconWaterOrange;
-            sproutIcon = iconPlantOrange;
-            tempIcon = iconTempOrange;
-            arrowIcon = iconArrowOrange;
-          } else if (box.status === 'Error') {
-            plantIcon = iconPlantGrey;
-            waterIcon = iconWaterGrey;
-            sproutIcon = iconPlantGrey;
-            tempIcon = iconTempGrey;
-            arrowIcon = iconArrowGrey;
-          }
-
-          return (
-            <view key={box.id} className={`BoxItemCard Card${statusClass}`} bindtap={() => onNavigate('details', box)}>
-              <view className="BoxItemHeader">
-                <view className="BoxItemInfo">
-                  <view className={`BoxItemPlantIconContainer PlantBg${statusClass}`}>
-                    <image src={plantIcon} className="BoxItemPlantIcon" />
-                  </view>
-                  <view className="BoxNameAndStatus">
-                    <text className={`BoxItemName TextName${statusClass}`}>{box.name}</text>
-                    <view className={`BoxStatusTag Tag${statusClass}`}>
-                      <view className={`BoxStatusDot Dot${statusClass}`} />
-                      <text className={`BoxStatusText Text${statusClass}`}>
-                        {box.status}
-                      </text>
-                    </view>
-                  </view>
-                </view>
-                <image src={arrowIcon} className="BoxItemArrowIcon" />
-              </view>
-
-              <view className="BoxSensorsRow">
-                <view className="SensorCol">
-                  <view className="SensorIconContainer WaterBg">
-                    <image src={waterIcon} className="SensorIcon" />
-                  </view>
-                  <text className={`SensorValue SensorValue${statusClass}`}>{box.water}</text>
-                </view>
-                <view className="SensorCol">
-                  <view className="SensorIconContainer SproutBg">
-                    <image src={sproutIcon} className="SensorIcon" />
-                  </view>
-                  <text className={`SensorValue SensorValue${statusClass}`}>{box.sprout}</text>
-                </view>
-                <view className="SensorCol">
-                  <view className="SensorIconContainer TempBg">
-                    <image src={tempIcon} className="SensorIcon" />
-                  </view>
-                  <text className={`SensorValue SensorValue${statusClass}`}>{box.temp}</text>
-                </view>
-              </view>
-            </view>
-          );
-        })}
-      </view>
-    </scroll-view>
-  );
-}
-
-interface BoxDetailsProps {
-  box: any;
-  onBack: () => void;
-}
-
-export function BoxDetails({ box, onBack }: BoxDetailsProps) {
-  const isBuruk = box.status === 'Perlu Perawatan' || box.status === 'Error';
-
-  const metrics = [
-    { id: 1, label: 'Kandungan Air', value: box.water, status: isBuruk ? 'Buruk' : 'Baik' },
-    { id: 2, label: 'Kelembapan Tanah', value: box.sprout, status: isBuruk ? 'Buruk' : 'Baik' },
-    { id: 3, label: 'Suhu Udara', value: box.temp, status: isBuruk ? 'Buruk' : 'Baik' },
-    { id: 4, label: 'Curah Hujan', value: '22 mm', status: isBuruk ? 'Sedang' : 'Baik' },
-    { id: 5, label: 'Umur Tanaman', value: '30 hst', status: isBuruk ? 'Sedang' : 'Baik' },
-  ];
-
-  return (
-    <view className={`DetailsScreen ${isBuruk ? 'DetailsScreenBuruk' : 'DetailsScreenBaik'}`}>
-      <view className="DetailsHeader">
-        <view className="BackButton" bindtap={onBack}>
-          <view className="BackArrowLine1" />
-          <view className="BackArrowLine2" />
-        </view>
-        <text className="DetailsHeaderTitle">{box.name}</text>
-        <view className="HeaderSpacer" />
-      </view>
-
-      <view className="DetailsHeroSection">
-        <text className={`DetailsStatusTitle ${isBuruk ? 'TextBuruk' : 'TextBaik'}`}>
-          {isBuruk ? 'Wilayah Buruk' : 'Wilayah Baik'}
-        </text>
-        <text className="DetailsStatusDesc">
-          {isBuruk ? 'Kondisi tanaman dan tanah tidak bagus' : 'Kondisi tanaman dan tanah bagus'}
-        </text>
-      </view>
-
-      <view className="MetricsList">
-        {metrics.map((metric) => (
-          <view key={metric.id} className="MetricRowCard">
-            <view className="MetricLabelContainer">
-              <text className="MetricRowLabel">{metric.label}</text>
-            </view>
-            <view className="MetricValueContainer">
-              <text className="MetricRowValue">{metric.value}</text>
-              <view className={`MetricRowTag ${metric.status === 'Baik' ? 'TagGreen' : metric.status === 'Sedang' ? 'TagOrange' : 'TagRed'}`}>
-                <text className={`MetricRowTagText ${metric.status === 'Baik' ? 'TextGreen' : metric.status === 'Sedang' ? 'TextOrange' : 'TextRed'}`}>
-                  {metric.status}
-                </text>
-              </view>
-            </view>
-          </view>
-        ))}
-      </view>
-
-      <view className="DeviceInfoSection">
-        <text className="DeviceSectionTitle">Informasi Perangkat</text>
-        <view className="DeviceCard">
-          <view className="DeviceDetailRow">
-            <text className="DeviceDetailLabel">ID Perangkat</text>
-            <text className="DeviceDetailValue">{box.status === 'Bagus' ? 'HT-001' : 'HT-002'}</text>
-          </view>
-          <view className="DeviceDetailRow">
-            <text className="DeviceDetailLabel">Sinkronisasi Terakhir</text>
-            <text className="DeviceDetailValue">2 menit lalu</text>
-          </view>
-          <view className="DeviceDetailRow">
-            <text className="DeviceDetailLabel">Baterai</text>
-            <text className="DeviceDetailValue">85%</text>
-          </view>
-        </view>
-      </view>
-    </view>
-  );
-}
+import { useState, type FormEvent } from 'react';
+import { TextField } from './TextField';
+import wordmark from '../assets/dashboard/taniplus-wordmark-green.png';
+import summaryGood from '../assets/dashboard/summary-good.png'; import summaryWarning from '../assets/dashboard/summary-warning.png'; import summaryError from '../assets/dashboard/summary-error.png';
+import plantGood from '../assets/dashboard/box-plant-good-solid.png'; import plantWarning from '../assets/dashboard/box-plant-warning-outline.png'; import plantError from '../assets/dashboard/box-plant-error-solid.png';
+import waterGood from '../assets/dashboard/water-good.png'; import waterWarning from '../assets/dashboard/water-warning.png'; import waterError from '../assets/dashboard/water-error.png';
+import growthGood from '../assets/dashboard/growth-good.png'; import growthGoodLarge from '../assets/dashboard/growth-good-large.png'; import growthWarning from '../assets/dashboard/growth-warning-large.png'; import growthError from '../assets/dashboard/growth-error.png';
+import tempGood from '../assets/dashboard/temperature-good.png'; import tempWarning from '../assets/dashboard/temperature-warning.png'; import tempWarningLarge from '../assets/dashboard/temperature-warning-large.png'; import tempError from '../assets/dashboard/temperature-error.png';
+import bulb from '../icon_bulb.svg'; import back from '../icon_back.svg'; import arrowGood from '../icon_arrow_green.svg'; import arrowWarning from '../icon_arrow_orange.svg'; import arrowError from '../icon_arrow_grey.svg';
+import metricWater from '../assets/detail/metric-water.png'; import metricMoisture from '../assets/detail/metric-soil-moisture.png'; import metricTemp from '../assets/detail/metric-air-temperature.png'; import metricRain from '../assets/detail/metric-rainfall.png'; import metricAge from '../assets/detail/metric-plant-age.png'; import metricPh from '../assets/detail/metric-soil-ph.png';
+export type BoxStatus='Bagus'|'Perlu Perawatan'|'Error'; export interface BoxData{id:number;name:string;status:BoxStatus;water:string;growth:string;temp:string}
+const boxes:BoxData[]=[{id:1,name:'Box 1 - Lahan Tomat',status:'Perlu Perawatan',water:'65%',growth:'50%',temp:'29°C'},{id:2,name:'Box 2 - Lahan Cabai',status:'Perlu Perawatan',water:'38%',growth:'42%',temp:'31°C'},{id:3,name:'Box 3 - Lahan Bawang',status:'Bagus',water:'72%',growth:'64%',temp:'27°C'},{id:4,name:'Box 4 - Lahan Kentang',status:'Bagus',water:'68%',growth:'58%',temp:'29°C'},{id:5,name:'Box 5 - Lahan Melon',status:'Error',water:'Error',growth:'Error',temp:'Error'}];
+const cls=(s:BoxStatus)=>s==='Bagus'?'good':s==='Error'?'error':'warning'; const a:Record<BoxStatus,{plant:string;water:string;growth:string;growthLarge:string;temp:string;tempLarge:string;arrow:string}>={Bagus:{plant:plantGood,water:waterGood,growth:growthGood,growthLarge:growthGoodLarge,temp:tempGood,tempLarge:tempGood,arrow:arrowGood},'Perlu Perawatan':{plant:plantWarning,water:waterWarning,growth:growthWarning,growthLarge:growthWarning,temp:tempWarning,tempLarge:tempWarningLarge,arrow:arrowWarning},Error:{plant:plantError,water:waterError,growth:growthError,growthLarge:growthError,temp:tempError,tempLarge:tempError,arrow:arrowError}};
+const Img=({src}:{src:string})=><img src={src} alt="" aria-hidden="true"/>; const Gear=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8 5v-2l-2.2-.8-.7-1.7 1-2-1.6-1.6-2 1-1.7-.7L12 3H10l-.8 2.2-1.7.7-2-1-1.6 1.6 1 2-.7 1.7L2 11v2l2.2.8.7 1.7-1 2 1.6 1.6 2-1 1.7.7L10 21h2l.8-2.2 1.7-.7 2 1 1.6-1.6-1-2 .7-1.7L20 13Z" fill="none" stroke="currentColor" strokeWidth="1.5"/></svg>;
+function Top({title,onBack,onSettings}:{title:string;onBack?:()=>void;onSettings?:()=>void}){return <header className="topbar">{onBack?<button className="icon-button" onClick={onBack} aria-label="Kembali"><Img src={back}/></button>:<span/>}<h1>{title}</h1>{onSettings?<button className="icon-button" onClick={onSettings} aria-label="Buka pengaturan"><Gear/></button>:<span/>}</header>}
+export function Dashboard({onOpenBox,onSettings}:{onOpenBox:(b:BoxData)=>void;onSettings:()=>void}){return <section className="screen dashboard-screen"><header className="dashboard-header"><img src={wordmark} alt="TaniPlus"/><button className="dashboard-settings" onClick={onSettings} aria-label="Buka pengaturan"><Gear/></button></header><article className="recommendation"><span className="recommendation-icon"><Img src={bulb}/></span><div><h2>Rekomendasi Pintar</h2><p>Box 2 perlu diperhatikan!!</p></div></article><div className="summary-grid"><Sum c="healthy" i={summaryGood} n="2" l="Wilayah Bagus"/><Sum c="attention" i={summaryWarning} n="2" l="Butuh Perawatan"/><Sum c="offline" i={summaryError} n="1" l="Box Error"/></div><div className="section-heading"><h2>Daftar Box</h2></div><div className="box-list">{boxes.map(b=><Card key={b.id} b={b} open={()=>onOpenBox(b)}/>)}</div></section>}
+const Sum=({c,i,n,l}:{c:string;i:string;n:string;l:string})=><article className={`summary-card ${c}`}><span className="summary-icon"><Img src={i}/></span><b>{n}</b><span>{l}</span></article>;
+function Card({b,open}:{b:BoxData;open:()=>void}){const x=a[b.status];return <button className={`box-card ${cls(b.status)}`} onClick={open}><span className="plant-icon"><Img src={x.plant}/></span><span className="box-main"><strong>{b.name}</strong><span className="status"><i/>{b.status}</span><span className="sensor-row"><span><Img src={x.water}/>{b.water}</span><span><Img src={x.growth}/>{b.growth}</span><span><Img src={x.temp}/>{b.temp}</span></span></span><span className="chevron"><Img src={x.arrow}/></span></button>}
+type VisualState='good'|'bad'|'error'; type MetricKind='water'|'moisture'|'temperature'|'rainfall'|'age'|'ph';
+const metricIcon:Record<MetricKind,string>={water:metricWater,moisture:metricMoisture,temperature:metricTemp,rainfall:metricRain,age:metricAge,ph:metricPh};
+const detailTemplate:Record<BoxStatus,{page:string;title:string;copy:string;states:VisualState[];values:[string,string][];device:[string,string,string]}>={Bagus:{page:'good',title:'Wilayah Baik',copy:'Kondisi tanaman dan tanah bagus',states:['good','good','good','good','bad','bad'],values:[['65','%'],['50','%'],['29','°C'],['22','mm'],['30','hst'],['6.8','pH']],device:['HT-001','2 menit lalu','85%']},'Perlu Perawatan':{page:'bad',title:'Wilayah Buruk',copy:'Kondisi tanaman dan tanah tidak bagus',states:['bad','bad','bad','good','good','good'],values:[['65','%'],['50','%'],['29','°C'],['22','mm'],['30','hst'],['6.8','pH']],device:['HT-002','2 menit lalu','85%']},Error:{page:'error',title:'Box Error',copy:'Segera periksa Box',states:['error','error','bad','error','good','good'],values:[['Error','%'],['Error','%'],['29','°C'],['Error','mm'],['30','hst'],['6.8','pH']],device:['HT-003','Error menit lalu','Error%']}};
+const metricDefs:[MetricKind,string][]=[['water','Kandungan Air'],['moisture','Kelembapan Tanah'],['temperature','Suhu Udara'],['rainfall','Curah Hujan'],['age','Umur Tanaman'],['ph','pH Tanah']];
+export function BoxDetails({box,onBack,onSettings}:{box:BoxData;onBack:()=>void;onSettings:()=>void}){const t=detailTemplate[box.status];return <section className={`screen details-screen detail-page-${t.page}`}><Top title={box.name} onBack={onBack} onSettings={onSettings}/><div className="detail-hero"><span className="detail-hero-icon">{t.page==='good'?<CheckIcon/>:t.page==='bad'?<WarningIcon/>:<RetryIcon/>}</span><div><h2>{t.title}</h2><p>{t.copy}</p></div></div><div className="visual-metric-grid">{metricDefs.map(([kind,label],index)=><MetricCard key={kind} kind={kind} label={label} value={t.values[index][0]} unit={t.values[index][1]} state={t.states[index]}/>)}</div><h2 className="content-title">Informasi Perangkat</h2><dl className="device-card"><div><dt>ID Perangkat</dt><dd>{t.device[0]}</dd></div><div><dt>Sinkronisasi Terakhir</dt><dd>{t.device[1]}</dd></div><div><dt>Baterai</dt><dd>{t.device[2]}</dd></div></dl></section>}
+function MetricCard({kind,label,value,unit,state}:{kind:MetricKind;label:string;value:string;unit:string;state:VisualState}){return <article className={`visual-metric-card metric-${state}`}><div className="visual-metric-top"><span className="metric-glyph" style={{'--icon':`url(${metricIcon[kind]})`} as React.CSSProperties}/><span className="metric-badge">{state==='good'?'Baik':state==='bad'?'Buruk':'Error'}</span></div><p>{label}</p><strong>{value} <em>{unit}</em></strong></article>}
+const CheckIcon=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2"/><path d="m8 12 2.5 2.5L16 9" fill="none" stroke="currentColor" strokeWidth="2"/></svg>;
+const WarningIcon=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.8 20h18.4L12 3Z" fill="none" stroke="currentColor" strokeWidth="2"/><path d="M12 9v5m0 3h.01" stroke="currentColor" strokeWidth="2"/></svg>;
+const RetryIcon=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" fill="none" stroke="currentColor" strokeWidth="2"/><path d="M18 10a7 7 0 0 0-12-3l-2 3m2 4a7 7 0 0 0 12 3l2-3" fill="none" stroke="currentColor" strokeWidth="2"/></svg>;
+export function BoxSettings({box,onBack}:{box:BoxData;onBack:()=>void}){const[saved,setSaved]=useState(false);const sub=(e:FormEvent<HTMLFormElement>)=>{e.preventDefault();setSaved(true)};return <section className="screen settings-screen"><Top title="Pengaturan Box" onBack={onBack}/><form className="settings-form" onSubmit={sub}><div className="settings-mark"><Img src={a[box.status].plant}/></div><h2>{box.name}</h2><TextField label="Nama Box" defaultValue={`Box ${box.id}`} required/><TextField label="Lokasi" defaultValue="Jakarta, Tanah Tinggi 12" required/><button className="primary-button">Simpan Perubahan</button>{saved&&<p className="success-message">Perubahan berhasil disimpan.</p>}</form></section>}
+export function ProfileSettings({onBack,onLogout}:{onBack:()=>void;onLogout:()=>void}){const[saved,setSaved]=useState(false);const sub=(e:FormEvent<HTMLFormElement>)=>{e.preventDefault();setSaved(true)};return <section className="screen settings-screen"><Top title="Pengaturan" onBack={onBack}/><form className="settings-form" onSubmit={sub}><div className="profile-avatar">AF</div><h2>Profil</h2><TextField label="Nama" defaultValue="Ayubi Fathan" required/><TextField label="Email" defaultValue="ayubixxxx@gmail.com" type="email" required/><TextField label="Lokasi" defaultValue="Jakarta, Tanah Tinggi 12" required/><button className="primary-button">Simpan Perubahan</button>{saved&&<p className="success-message">Profil berhasil diperbarui.</p>}<button className="logout-button" type="button" onClick={onLogout}>Keluar dari akun</button></form></section>}

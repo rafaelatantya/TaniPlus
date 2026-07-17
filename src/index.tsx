@@ -1,11 +1,13 @@
-import '@lynx-js/preact-devtools'
-import '@lynx-js/react/debug'
-import { root } from '@lynx-js/react'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { App } from './App';
+import './App.css';
 
-import { App } from './App.js'
+const root = document.getElementById('root');
+if (!root) throw new Error('Root element is missing');
 
-root.render(<App />)
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-}
+createRoot(root).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

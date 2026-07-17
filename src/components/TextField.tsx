@@ -1,47 +1,14 @@
-import { useCallback } from '@lynx-js/react';
-import iconPhone from '../icon_phone.svg';
-import iconKey from '../icon_key.svg';
-import './TextField.css';
+import type { InputHTMLAttributes } from 'react';
 
-interface TextFieldProps {
-  label: string;
-  placeholder: string;
-  value: string;
-  onChange: (val: string) => void;
-  type?: 'text' | 'password' | 'tel';
-  icon?: 'phone' | 'key';
-}
+type Props = InputHTMLAttributes<HTMLInputElement> & { label: string; helper?: string };
 
-export function TextField({
-  label,
-  placeholder,
-  value,
-  onChange,
-  type = 'text',
-  icon
-}: TextFieldProps) {
-  const onInput = useCallback((e: any) => {
-    onChange(e.detail.value);
-  }, [onChange]);
-
+export function TextField({ label, helper, id, ...inputProps }: Props) {
+  const fieldId = id ?? `field-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   return (
-    <view className="TextFieldContainer">
-      <text className="TextFieldLabel">{label}</text>
-      <view className="TextFieldInputWrapper">
-        {icon === 'phone' && (
-          <image src={iconPhone} className="TextFieldIcon" />
-        )}
-        {icon === 'key' && (
-          <image src={iconKey} className="TextFieldIcon" />
-        )}
-        <input
-          type={type}
-          placeholder={placeholder}
-          {...({ value } as any)}
-          bindinput={onInput}
-          className="TextFieldInput"
-        />
-      </view>
-    </view>
+    <label className="field" htmlFor={fieldId}>
+      <span>{label}</span>
+      <input id={fieldId} {...inputProps} />
+      {helper && <small>{helper}</small>}
+    </label>
   );
 }
