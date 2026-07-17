@@ -33,9 +33,9 @@
 
 .WelcomeText {
   font-family: 'Inter', sans-serif;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
-  color: #000000;
+  color: #124F2C;
 }
 
 .LogoutBtn {
@@ -147,10 +147,12 @@
 
 .CardGreen {
   background-color: #2FD173;
+  background: linear-gradient(180deg, #2FD173 0%, #ACEDC7 100%);
 }
 
 .CardOrange {
   background-color: #D84315;
+  background: linear-gradient(180deg, #D84315 0%, #FD9C7F 100%);
 }
 
 .StatCardFull {
@@ -165,8 +167,8 @@
 }
 
 .CardGrey {
-  background-color: #9E9E9E;
-  background: linear-gradient(180deg, #9E9E9E 0%, #D1D1D6 100%);
+  background-color: #B4B7B5;
+  background: linear-gradient(180deg, #B4B7B5 0%, #EFEFEF 100%);
 }
 
 .StatIconContainer {
@@ -206,12 +208,12 @@
   color: #124F2C;
 }
 
-.CardOrange .ColorOrangeText {
+.ColorOrangeText {
   color: #8A2408;
 }
 
 .ColorGreyText {
-  color: #1C1C1E;
+  color: #5F6160;
 }
 
 .SectionTitleContainer {
@@ -222,7 +224,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  color: #000000;
+  color: #124F2C;
 }
 
 .BoxListContainer {
@@ -232,13 +234,24 @@
 }
 
 .BoxItemCard {
-  background-color: #ffffff;
   border-radius: 16px;
   padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.02);
   transition: transform 0.15s ease-out;
   animation: fadeInUp 0.4s ease-out both;
+}
+
+.CardBagus {
+  background-color: #E6F9EE;
+}
+
+.CardPerluPerawatan {
+  background-color: #FFFFFF;
+}
+
+.CardError {
+  background-color: #DCE0DE;
 }
 
 .BoxItemCard:active {
@@ -264,10 +277,31 @@
   align-items: center;
 }
 
-.BoxItemPlantIcon {
+.BoxItemPlantIconContainer {
   width: 32px;
   height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 12px;
+}
+
+.PlantBgBagus {
+  background-color: #2FD173;
+}
+
+.PlantBgPerluPerawatan {
+  background-color: #D84315;
+}
+
+.PlantBgError {
+  background-color: #B4B7B5;
+}
+
+.BoxItemPlantIcon {
+  width: 24px;
+  height: 24px;
 }
 
 .BoxNameAndStatus {
@@ -279,14 +313,39 @@
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #1C1C1E;
 }
 
-.BoxStatusContainer {
+.TextNameBagus {
+  color: #124F2C;
+}
+
+.TextNamePerluPerawatan {
+  color: #8A2408;
+}
+
+.TextNameError {
+  color: #5C6962;
+}
+
+.BoxStatusTag {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 2px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.TagBagus {
+  background-color: #ACEDC7;
+}
+
+.TagPerluPerawatan {
+  background-color: #FBE9E7;
+}
+
+.TagError {
+  background-color: #B4B7B5;
 }
 
 .BoxStatusDot {
@@ -297,15 +356,15 @@
 }
 
 .DotBagus {
-  background-color: #2FD173;
+  background-color: #124F2C;
 }
 
 .DotPerluPerawatan {
-  background-color: #D84315;
+  background-color: #8A2408;
 }
 
 .DotError {
-  background-color: #8E8E93;
+  background-color: #5C6962;
 }
 
 .BoxStatusText {
@@ -323,7 +382,7 @@
 }
 
 .TextError {
-  color: #5F6160;
+  color: #5C6962;
 }
 
 .ArrowIcon {
@@ -335,7 +394,6 @@
 .ArrowLine1 {
   width: 8px;
   height: 2px;
-  background-color: #8E8E93;
   transform: rotate(45deg);
   position: absolute;
   top: 5px;
@@ -345,18 +403,29 @@
 .ArrowLine2 {
   width: 8px;
   height: 2px;
-  background-color: #8E8E93;
   transform: rotate(-45deg);
   position: absolute;
   bottom: 5px;
   right: 4px;
 }
 
+.ArrowLineBagus {
+  background-color: #124F2C;
+}
+
+.ArrowLinePerluPerawatan {
+  background-color: #8A2408;
+}
+
+.ArrowLineError {
+  background-color: #5C6962;
+}
+
 .BoxSensorsRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 1px solid #E5E5EA;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-top: 12px;
   margin-top: 12px;
 }
@@ -397,9 +466,20 @@
 
 .SensorValue {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #3A3A3C;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.SensorValueBagus {
+  color: #324078;
+}
+
+.SensorValuePerluPerawatan {
+  color: #8A2408;
+}
+
+.SensorValueError {
+  color: #5C6962;
 }
 
 @keyframes fadeInUp {

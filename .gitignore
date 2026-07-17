@@ -14,3 +14,10 @@ dist/
 
 # TypeScript
 *.tsbuildinfo
+
+# Gradle and temporary files
+.gradle/
+dist/*.txt
+dist/*.cjs
+*.txt
+

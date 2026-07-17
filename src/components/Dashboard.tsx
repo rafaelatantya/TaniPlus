@@ -1,7 +1,17 @@
 import { useCallback } from '@lynx-js/react';
-import iconPlant from '../icon_plant.svg';
-import iconWater from '../icon_water.svg';
-import iconTemp from '../icon_temp.svg';
+import iconPlantGreen from '../icon_plant_green.svg';
+import iconPlantOrange from '../icon_plant_orange.svg';
+import iconPlantGrey from '../icon_plant_grey.svg';
+import iconPlantBlue from '../icon_plant_blue.svg';
+
+import iconWaterBlue from '../icon_water_blue.svg';
+import iconWaterOrange from '../icon_water_orange.svg';
+import iconWaterGrey from '../icon_water_grey.svg';
+
+import iconTempGreen from '../icon_temp_green.svg';
+import iconTempOrange from '../icon_temp_orange.svg';
+import iconTempGrey from '../icon_temp_grey.svg';
+
 import iconCheck from '../icon_check.svg';
 import iconDanger from '../icon_danger.svg';
 import iconRss from '../icon_rss.svg';
@@ -88,49 +98,74 @@ export function Dashboard({ onNavigate }: DashboardProps) {
       </view>
 
       <scroll-view className="BoxListContainer" scroll-y={true}>
-        {mockBoxes.map((box) => (
-          <view key={box.id} className="BoxItemCard" bindtap={() => onNavigate('details', box)}>
-            <view className="BoxItemHeader">
-              <view className="BoxItemInfo">
-                <image src={iconPlant} className="BoxItemPlantIcon" />
-                <view className="BoxNameAndStatus">
-                  <text className="BoxItemName">{box.name}</text>
-                  <view className="BoxStatusContainer">
-                    <view className={`BoxStatusDot Dot${box.status.replace(/\s+/g, '')}`} />
-                    <text className={`BoxStatusText Text${box.status.replace(/\s+/g, '')}`}>
-                      {box.status}
-                    </text>
+        {mockBoxes.map((box) => {
+          // Determine status suffix for class names
+          const statusClass = box.status.replace(/\s+/g, '');
+
+          // Determine icons based on status
+          let plantIcon = iconPlantGreen;
+          let waterIcon = iconWaterBlue;
+          let sproutIcon = iconPlantBlue;
+          let tempIcon = iconTempGreen;
+
+          if (box.status === 'Perlu Perawatan') {
+            plantIcon = iconPlantOrange;
+            waterIcon = iconWaterOrange;
+            sproutIcon = iconPlantOrange;
+            tempIcon = iconTempOrange;
+          } else if (box.status === 'Error') {
+            plantIcon = iconPlantGrey;
+            waterIcon = iconWaterGrey;
+            sproutIcon = iconPlantGrey;
+            tempIcon = iconTempGrey;
+          }
+
+          return (
+            <view key={box.id} className={`BoxItemCard Card${statusClass}`} bindtap={() => onNavigate('details', box)}>
+              <view className="BoxItemHeader">
+                <view className="BoxItemInfo">
+                  <view className={`BoxItemPlantIconContainer PlantBg${statusClass}`}>
+                    <image src={plantIcon} className="BoxItemPlantIcon" />
+                  </view>
+                  <view className="BoxNameAndStatus">
+                    <text className={`BoxItemName TextName${statusClass}`}>{box.name}</text>
+                    <view className={`BoxStatusTag Tag${statusClass}`}>
+                      <view className={`BoxStatusDot Dot${statusClass}`} />
+                      <text className={`BoxStatusText Text${statusClass}`}>
+                        {box.status}
+                      </text>
+                    </view>
                   </view>
                 </view>
+                <view className="ArrowIcon">
+                  <view className={`ArrowLine1 ArrowLine${statusClass}`} />
+                  <view className={`ArrowLine2 ArrowLine${statusClass}`} />
+                </view>
               </view>
-              <view className="ArrowIcon">
-                <view className="ArrowLine1" />
-                <view className="ArrowLine2" />
-              </view>
-            </view>
 
-            <view className="BoxSensorsRow">
-              <view className="SensorCol">
-                <view className="SensorIconContainer WaterBg">
-                  <image src={iconWater} className="SensorIcon" />
+              <view className="BoxSensorsRow">
+                <view className="SensorCol">
+                  <view className="SensorIconContainer WaterBg">
+                    <image src={waterIcon} className="SensorIcon" />
+                  </view>
+                  <text className={`SensorValue SensorValue${statusClass}`}>{box.water}</text>
                 </view>
-                <text className="SensorValue">{box.water}</text>
-              </view>
-              <view className="SensorCol">
-                <view className="SensorIconContainer SproutBg">
-                  <image src={iconPlant} className="SensorIcon" />
+                <view className="SensorCol">
+                  <view className="SensorIconContainer SproutBg">
+                    <image src={sproutIcon} className="SensorIcon" />
+                  </view>
+                  <text className={`SensorValue SensorValue${statusClass}`}>{box.sprout}</text>
                 </view>
-                <text className="SensorValue">{box.sprout}</text>
-              </view>
-              <view className="SensorCol">
-                <view className="SensorIconContainer TempBg">
-                  <image src={iconTemp} className="SensorIcon" />
+                <view className="SensorCol">
+                  <view className="SensorIconContainer TempBg">
+                    <image src={tempIcon} className="SensorIcon" />
+                  </view>
+                  <text className={`SensorValue SensorValue${statusClass}`}>{box.temp}</text>
                 </view>
-                <text className="SensorValue">{box.temp}</text>
               </view>
             </view>
-          </view>
-        ))}
+          );
+        })}
       </scroll-view>
     </view>
   );
