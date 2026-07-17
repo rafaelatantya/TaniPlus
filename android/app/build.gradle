@@ -35,6 +35,25 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
 
-    // Lynx SDK dependency
-    implementation 'org.lynxjs:lynx:0.1.0'
+    // Core Lynx SDK Dependencies
+    implementation 'org.lynxsdk.lynx:lynx:3.9.0'
+    implementation 'org.lynxsdk.lynx:lynx-jssdk:3.9.0'
+    implementation 'org.lynxsdk.lynx:lynx-trace:3.9.0'
+    implementation 'org.lynxsdk.lynx:primjs:3.9.0'
+
+    // Lynx Service Modules (required for images, HTTP and logging)
+    implementation 'org.lynxsdk.lynx:lynx-service-image:3.9.0'
+    implementation 'org.lynxsdk.lynx:lynx-service-log:3.9.0'
+    implementation 'org.lynxsdk.lynx:lynx-service-http:3.9.0'
+
+    // Lynx Elements
+    implementation 'org.lynxsdk.lynx:xelement:3.9.0'
+    implementation 'org.lynxsdk.lynx:xelement-input:3.9.0'
+
+    // Third-Party Libraries required by Lynx SDK
+    implementation 'com.facebook.fresco:fresco:2.3.0'
+    implementation 'com.facebook.fresco:animated-gif:2.3.0'
+    implementation 'com.facebook.fresco:animated-webp:2.3.0'
+    implementation 'com.facebook.fresco:webpsupport:2.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
