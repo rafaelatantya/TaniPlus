@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 412px;
   min-height: 917px;
-  background-color: #DCE0DE;
+  background-color: #F5FDF8;
   display: flex;
   flex-direction: column;
   padding: 24px 20px;
@@ -15,6 +15,20 @@
   align-items: center;
   margin-bottom: 20px;
   margin-top: 16px;
+}
+
+.HeaderWelcomeArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.WelcomeAvatar {
+  width: 48px;
+  height: 48px;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+  margin-right: 12px;
 }
 
 .WelcomeText {
@@ -584,4 +598,211 @@
 .DotPerluPerawatan, .DotError {
   animation: statusPulse 1.8s infinite ease-in-out;
 }
+
+/* Details Screen Styles */
+.DetailsScreen {
+  width: 100%;
+  max-width: 412px;
+  min-height: 917px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+}
+
+.DetailsScreenBaik {
+  background-color: #E6F9EE;
+}
+
+.DetailsScreenBuruk {
+  background-color: #FBE9E7;
+}
+
+.DetailsHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+.BackButton {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  transition: transform 0.1s ease-out;
+}
+
+.BackButton:active {
+  transform: scale(0.92);
+}
+
+.BackArrowLine1 {
+  width: 10px;
+  height: 2px;
+  background-color: #1C1C1E;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 15px;
+  left: 13px;
+}
+
+.BackArrowLine2 {
+  width: 10px;
+  height: 2px;
+  background-color: #1C1C1E;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: 15px;
+  left: 13px;
+}
+
+.DetailsHeaderTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1C1C1E;
+}
+
+.HeaderSpacer {
+  width: 40px;
+}
+
+.DetailsHeroSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.DetailsStatusTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.TextBaik {
+  color: #124F2C;
+}
+
+.TextBuruk {
+  color: #8A2408;
+}
+
+.DetailsStatusDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #5F6160;
+  margin-top: 4px;
+}
+
+.MetricsList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.MetricRowCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.MetricLabelContainer {
+  flex: 1;
+}
+
+.MetricRowLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1C1C1E;
+}
+
+.MetricValueContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.MetricRowValue {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1C1C1E;
+  margin-right: 12px;
+}
+
+.MetricRowTag {
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.MetricRowTagText {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.TagRed {
+  background-color: rgba(216, 67, 21, 0.15);
+}
+
+.TextRed {
+  color: #D32F2F;
+}
+
+.DeviceInfoSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.DeviceSectionTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1C1C1E;
+  margin-bottom: 12px;
+}
+
+.DeviceCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.DeviceDetailRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E5E5EA;
+}
+
+.DeviceDetailLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #5F6160;
+}
+
+.DeviceDetailValue {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C1C1E;
+}
+
 

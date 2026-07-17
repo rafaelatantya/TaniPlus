@@ -2,7 +2,7 @@ import { useCallback } from '@lynx-js/react';
 import './Dashboard.css';
 
 interface DashboardProps {
-  onNavigate: (page: 'login' | 'register' | 'dashboard') => void;
+  onNavigate: (page: 'login' | 'register' | 'dashboard' | 'details', data?: any) => void;
 }
 
 export function Dashboard({ onNavigate }: DashboardProps) {
@@ -21,7 +21,10 @@ export function Dashboard({ onNavigate }: DashboardProps) {
   return (
     <view className="DashboardScreen">
       <view className="DashboardHeader">
-        <text className="WelcomeText">Halo Petani</text>
+        <view className="HeaderWelcomeArea">
+          <view className="WelcomeAvatar" />
+          <text className="WelcomeText">Halo Petani</text>
+        </view>
         <view className="LogoutBtn" bindtap={handleLogout}>
           <text className="LogoutText">Logout</text>
         </view>
@@ -89,7 +92,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
 
       <scroll-view className="BoxListContainer" scroll-y={true}>
         {mockBoxes.map((box) => (
-          <view key={box.id} className="BoxItemCard">
+          <view key={box.id} className="BoxItemCard" bindtap={() => onNavigate('details', box)}>
             <view className="BoxItemHeader">
               <view className="BoxItemInfo">
                 <view className="PlantIcon">
@@ -143,6 +146,81 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           </view>
         ))}
       </scroll-view>
+    </view>
+  );
+}
+
+interface BoxDetailsProps {
+  box: any;
+  onBack: () => void;
+}
+
+export function BoxDetails({ box, onBack }: BoxDetailsProps) {
+  const isBuruk = box.status === 'Perlu Perawatan' || box.status === 'Error';
+
+  const metrics = [
+    { id: 1, label: 'Kandungan Air', value: box.water, status: isBuruk ? 'Buruk' : 'Baik' },
+    { id: 2, label: 'Kelembapan Tanah', value: box.sprout, status: isBuruk ? 'Buruk' : 'Baik' },
+    { id: 3, label: 'Suhu Udara', value: box.temp, status: isBuruk ? 'Buruk' : 'Baik' },
+    { id: 4, label: 'Curah Hujan', value: '22 mm', status: isBuruk ? 'Sedang' : 'Baik' },
+    { id: 5, label: 'Umur Tanaman', value: '30 hst', status: isBuruk ? 'Sedang' : 'Baik' },
+  ];
+
+  return (
+    <view className={`DetailsScreen ${isBuruk ? 'DetailsScreenBuruk' : 'DetailsScreenBaik'}`}>
+      <view className="DetailsHeader">
+        <view className="BackButton" bindtap={onBack}>
+          <view className="BackArrowLine1" />
+          <view className="BackArrowLine2" />
+        </view>
+        <text className="DetailsHeaderTitle">{box.name}</text>
+        <view className="HeaderSpacer" />
+      </view>
+
+      <view className="DetailsHeroSection">
+        <text className={`DetailsStatusTitle ${isBuruk ? 'TextBuruk' : 'TextBaik'}`}>
+          {isBuruk ? 'Wilayah Buruk' : 'Wilayah Baik'}
+        </text>
+        <text className="DetailsStatusDesc">
+          {isBuruk ? 'Kondisi tanaman dan tanah tidak bagus' : 'Kondisi tanaman dan tanah bagus'}
+        </text>
+      </view>
+
+      <view className="MetricsList">
+        {metrics.map((metric) => (
+          <view key={metric.id} className="MetricRowCard">
+            <view className="MetricLabelContainer">
+              <text className="MetricRowLabel">{metric.label}</text>
+            </view>
+            <view className="MetricValueContainer">
+              <text className="MetricRowValue">{metric.value}</text>
+              <view className={`MetricRowTag ${metric.status === 'Baik' ? 'TagGreen' : metric.status === 'Sedang' ? 'TagOrange' : 'TagRed'}`}>
+                <text className={`MetricRowTagText ${metric.status === 'Baik' ? 'TextGreen' : metric.status === 'Sedang' ? 'TextOrange' : 'TextRed'}`}>
+                  {metric.status}
+                </text>
+              </view>
+            </view>
+          </view>
+        ))}
+      </view>
+
+      <view className="DeviceInfoSection">
+        <text className="DeviceSectionTitle">Informasi Perangkat</text>
+        <view className="DeviceCard">
+          <view className="DeviceDetailRow">
+            <text className="DeviceDetailLabel">ID Perangkat</text>
+            <text className="DeviceDetailValue">{box.status === 'Bagus' ? 'HT-001' : 'HT-002'}</text>
+          </view>
+          <view className="DeviceDetailRow">
+            <text className="DeviceDetailLabel">Sinkronisasi Terakhir</text>
+            <text className="DeviceDetailValue">2 menit lalu</text>
+          </view>
+          <view className="DeviceDetailRow">
+            <text className="DeviceDetailLabel">Baterai</text>
+            <text className="DeviceDetailValue">85%</text>
+          </view>
+        </view>
+      </view>
     </view>
   );
 }

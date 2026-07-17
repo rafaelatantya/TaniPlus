@@ -4,7 +4,7 @@ import { Checkbox } from './Checkbox.js';
 import './Login.css';
 
 interface RegisterProps {
-  onNavigate: (page: 'login' | 'register' | 'dashboard') => void;
+  onNavigate: (page: 'login' | 'register' | 'dashboard' | 'details', data?: any) => void;
 }
 
 export function Register({ onNavigate }: RegisterProps) {
