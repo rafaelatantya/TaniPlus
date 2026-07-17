@@ -35,7 +35,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
   ];
 
   return (
-    <view className="DashboardScreen">
+    <scroll-view scroll-y={true} className="DashboardScreen">
       <view className="DashboardHeader">
         <view className="HeaderWelcomeArea">
           <view className="WelcomeAvatar" />
@@ -97,7 +97,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         <text className="SectionTitle">Daftar Box</text>
       </view>
 
-      <scroll-view className="BoxListContainer" scroll-y={true}>
+      <view className="BoxListContainer">
         {mockBoxes.map((box) => {
           // Determine status suffix for class names
           const statusClass = box.status.replace(/\s+/g, '');
@@ -166,8 +166,8 @@ export function Dashboard({ onNavigate }: DashboardProps) {
             </view>
           );
         })}
-      </scroll-view>
-    </view>
+      </view>
+    </scroll-view>
   );
 }
 
