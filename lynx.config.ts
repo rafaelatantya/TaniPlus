@@ -20,6 +20,7 @@ export default defineConfig({
   },
   output: {
     dataUriLimit: 0,
+    assetPrefix: 'auto',
   },
   plugins: [
     pluginQRCode({
