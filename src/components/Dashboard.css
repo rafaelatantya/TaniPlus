@@ -76,30 +76,9 @@
   margin-right: 16px;
 }
 
-.LightBulbIcon {
+.BannerBulbIcon {
   width: 24px;
   height: 24px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.BulbCircle {
-  width: 12px;
-  height: 12px;
-  border: 2px solid #5b75db;
-  border-radius: 50%;
-  background-color: #ffffff;
-}
-
-.BulbBase {
-  width: 6px;
-  height: 4px;
-  border: 2px solid #5b75db;
-  border-top: none;
-  background-color: #ffffff;
 }
 
 .BannerTextContainer {
@@ -396,40 +375,9 @@
   color: #5C6962;
 }
 
-.ArrowIcon {
-  width: 16px;
-  height: 16px;
-  position: relative;
-}
-
-.ArrowLine1 {
-  width: 8px;
-  height: 2px;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 5px;
-  right: 4px;
-}
-
-.ArrowLine2 {
-  width: 8px;
-  height: 2px;
-  transform: rotate(-45deg);
-  position: absolute;
-  bottom: 5px;
-  right: 4px;
-}
-
-.ArrowLineBagus {
-  background-color: #124F2C;
-}
-
-.ArrowLinePerluPerawatan {
-  background-color: #8A2408;
-}
-
-.ArrowLineError {
-  background-color: #5C6962;
+.BoxItemArrowIcon {
+  width: 24px;
+  height: 24px;
 }
 
 .BoxSensorsRow {

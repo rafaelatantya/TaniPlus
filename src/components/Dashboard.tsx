@@ -12,9 +12,14 @@ import iconTempGreen from '../icon_temp_green.svg';
 import iconTempOrange from '../icon_temp_orange.svg';
 import iconTempGrey from '../icon_temp_grey.svg';
 
+import iconArrowGreen from '../icon_arrow_green.svg';
+import iconArrowOrange from '../icon_arrow_orange.svg';
+import iconArrowGrey from '../icon_arrow_grey.svg';
+
 import iconCheckWhite from '../icon_check_white.svg';
 import iconDanger from '../icon_danger.svg';
 import iconRss from '../icon_rss.svg';
+import iconBulb from '../icon_bulb.svg';
 import './Dashboard.css';
 
 interface DashboardProps {
@@ -48,10 +53,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
 
       <view className="RecommendationBanner">
         <view className="IconWrapper">
-          <view className="LightBulbIcon">
-            <view className="BulbCircle" />
-            <view className="BulbBase" />
-          </view>
+          <image src={iconBulb} className="BannerBulbIcon" />
         </view>
         <view className="BannerTextContainer">
           <text className="BannerTitle">Rekomendasi Pintar</text>
@@ -107,17 +109,20 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           let waterIcon = iconWaterBlue;
           let sproutIcon = iconPlantBlue;
           let tempIcon = iconTempGreen;
+          let arrowIcon = iconArrowGreen;
 
           if (box.status === 'Perlu Perawatan') {
             plantIcon = iconPlantOrange;
             waterIcon = iconWaterOrange;
             sproutIcon = iconPlantOrange;
             tempIcon = iconTempOrange;
+            arrowIcon = iconArrowOrange;
           } else if (box.status === 'Error') {
             plantIcon = iconPlantGrey;
             waterIcon = iconWaterGrey;
             sproutIcon = iconPlantGrey;
             tempIcon = iconTempGrey;
+            arrowIcon = iconArrowGrey;
           }
 
           return (
@@ -137,10 +142,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
                     </view>
                   </view>
                 </view>
-                <view className="ArrowIcon">
-                  <view className={`ArrowLine1 ArrowLine${statusClass}`} />
-                  <view className={`ArrowLine2 ArrowLine${statusClass}`} />
-                </view>
+                <image src={arrowIcon} className="BoxItemArrowIcon" />
               </view>
 
               <view className="BoxSensorsRow">
