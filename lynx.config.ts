@@ -18,6 +18,9 @@ export default defineConfig({
     lynx: {},
     web: {}
   },
+  output: {
+    dataUriLimit: 0,
+  },
   plugins: [
     pluginQRCode({
       schema(url) {
