@@ -27,7 +27,7 @@
 .TextFieldIcon {
   width: 20px;
   height: 20px;
-  margin-right: 12px;
+  margin-right: 8px;
 }
 
 .TextFieldInput {
@@ -39,4 +39,8 @@
   font-size: 14px;
   color: #121212;
   outline: none;
+}
+
+.TextFieldInput::placeholder {
+  color: rgba(18, 18, 18, 0.38);
 }
