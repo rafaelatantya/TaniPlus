@@ -1,7 +1,6 @@
 import { useState, useCallback } from '@lynx-js/react';
 import { TextField } from './TextField.js';
 import { Checkbox } from './Checkbox.js';
-import logoSvg from '../logo.svg';
 import './Login.css';
 
 interface LoginProps {
@@ -24,10 +23,6 @@ export function Login({ onNavigate }: LoginProps) {
   return (
     <view className="LoginScreen">
       <view className="LoginHeader">
-        <view className="LogoRow">
-          <image src={logoSvg} className="LogoIcon" />
-          <text className="LogoText">Logoipsum</text>
-        </view>
         <view className="TitleRow">
           <text className="GetStartedTitle">Get Started Now</text>
         </view>
