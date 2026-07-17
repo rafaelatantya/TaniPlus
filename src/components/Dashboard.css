@@ -179,79 +179,9 @@
   border-radius: 8px;
 }
 
-.CheckIcon {
-  width: 16px;
-  height: 16px;
-  position: relative;
-}
-
-.CheckLine1 {
-  width: 4px;
-  height: 8px;
-  border-right: 2.5px solid #124F2C;
-  border-bottom: 2.5px solid #124F2C;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 2px;
-  left: 5px;
-}
-
-.TriangleIcon {
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 14px solid #8A2408;
-  position: relative;
-}
-
-.TriangleExclamation {
-  position: absolute;
-  top: 4px;
-  left: -1px;
-  width: 2px;
-  height: 5px;
-  background-color: #ffffff;
-}
-
-.RssIcon {
-  width: 18px;
-  height: 18px;
-  position: relative;
-}
-
-.RssDot {
-  width: 4px;
-  height: 4px;
-  background-color: #324078;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.RssRing1 {
-  width: 8px;
-  height: 8px;
-  border: 2px solid #324078;
-  border-bottom: none;
-  border-left: none;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.RssRing2 {
-  width: 14px;
-  height: 14px;
-  border: 2px solid #324078;
-  border-bottom: none;
-  border-left: none;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.StatCardIcon {
+  width: 24px;
+  height: 24px;
 }
 
 .StatTextContainer {
@@ -334,47 +264,10 @@
   align-items: center;
 }
 
-.PlantIcon {
+.BoxItemPlantIcon {
   width: 32px;
   height: 32px;
-  position: relative;
   margin-right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(39, 174, 96, 0.1);
-  border-radius: 8px;
-}
-
-.PlantStem {
-  width: 2px;
-  height: 14px;
-  background-color: #27AE60;
-  border-radius: 1px;
-  position: absolute;
-  bottom: 6px;
-}
-
-.PlantLeafLeft {
-  width: 6px;
-  height: 6px;
-  border-radius: 6px 0;
-  background-color: #27AE60;
-  position: absolute;
-  top: 10px;
-  left: 8px;
-  transform: rotate(-30deg);
-}
-
-.PlantLeafRight {
-  width: 6px;
-  height: 6px;
-  border-radius: 0 6px;
-  background-color: #27AE60;
-  position: absolute;
-  top: 10px;
-  right: 8px;
-  transform: rotate(30deg);
 }
 
 .BoxNameAndStatus {
@@ -497,78 +390,9 @@
   background-color: rgba(226, 135, 67, 0.12);
 }
 
-.WaterDropIcon {
-  width: 6px;
-  height: 6px;
-  transform: rotate(-45deg);
-  border-radius: 0 50% 50% 50%;
-  background-color: #2D9CDB;
-}
-
-.SproutIcon {
-  width: 12px;
-  height: 12px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.SproutStem {
-  width: 1.5px;
-  height: 8px;
-  background-color: #27AE60;
-  position: absolute;
-  bottom: 1px;
-}
-
-.SproutLeafLeft {
-  width: 4px;
-  height: 4px;
-  border-radius: 4px 0;
-  background-color: #27AE60;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transform: rotate(-30deg);
-}
-
-.SproutLeafRight {
-  width: 4px;
-  height: 4px;
-  border-radius: 0 4px;
-  background-color: #27AE60;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  transform: rotate(30deg);
-}
-
-.TempIcon {
-  width: 12px;
-  height: 12px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.TempBulb {
-  width: 2.5px;
-  height: 7px;
-  border-radius: 1px;
-  background-color: #E28743;
-  position: absolute;
-  top: 1px;
-}
-
-.TempCircle {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #E28743;
-  position: absolute;
-  bottom: 1px;
+.SensorIcon {
+  width: 16px;
+  height: 16px;
 }
 
 .SensorValue {

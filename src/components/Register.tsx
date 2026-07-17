@@ -1,6 +1,7 @@
 import { useState, useCallback } from '@lynx-js/react';
 import { TextField } from './TextField.js';
 import { Checkbox } from './Checkbox.js';
+import logoSvg from '../logo.svg';
 import './Login.css';
 
 interface RegisterProps {
@@ -24,7 +25,7 @@ export function Register({ onNavigate }: RegisterProps) {
     <view className="LoginScreen">
       <view className="LoginHeader">
         <view className="LogoRow">
-          <view className="LogoCircle" />
+          <image src={logoSvg} className="LogoIcon" />
           <text className="LogoText">Logoipsum</text>
         </view>
         <view className="TitleRow">

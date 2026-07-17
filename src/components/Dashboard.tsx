@@ -1,4 +1,10 @@
 import { useCallback } from '@lynx-js/react';
+import iconPlant from '../icon_plant.svg';
+import iconWater from '../icon_water.svg';
+import iconTemp from '../icon_temp.svg';
+import iconCheck from '../icon_check.svg';
+import iconDanger from '../icon_danger.svg';
+import iconRss from '../icon_rss.svg';
 import './Dashboard.css';
 
 interface DashboardProps {
@@ -47,10 +53,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         <view className="StatsRow">
           <view className="StatCard CardGreen">
             <view className="StatIconContainer">
-              <view className="CheckIcon">
-                <view className="CheckLine1" />
-                <view className="CheckLine2" />
-              </view>
+              <image src={iconCheck} className="StatCardIcon" />
             </view>
             <view className="StatTextContainer">
               <text className="StatNumber ColorGreenText">2</text>
@@ -60,9 +63,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
 
           <view className="StatCard CardOrange">
             <view className="StatIconContainer">
-              <view className="TriangleIcon">
-                <view className="TriangleExclamation" />
-              </view>
+              <image src={iconDanger} className="StatCardIcon" />
             </view>
             <view className="StatTextContainer">
               <text className="StatNumber ColorOrangeText">2</text>
@@ -73,11 +74,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
 
         <view className="StatCardFull CardGrey">
           <view className="StatIconContainer">
-            <view className="RssIcon">
-              <view className="RssDot" />
-              <view className="RssRing1" />
-              <view className="RssRing2" />
-            </view>
+            <image src={iconRss} className="StatCardIcon" />
           </view>
           <view className="StatTextContainer">
             <text className="StatNumber ColorGreyText">1</text>
@@ -95,11 +92,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           <view key={box.id} className="BoxItemCard" bindtap={() => onNavigate('details', box)}>
             <view className="BoxItemHeader">
               <view className="BoxItemInfo">
-                <view className="PlantIcon">
-                  <view className="PlantStem" />
-                  <view className="PlantLeafLeft" />
-                  <view className="PlantLeafRight" />
-                </view>
+                <image src={iconPlant} className="BoxItemPlantIcon" />
                 <view className="BoxNameAndStatus">
                   <text className="BoxItemName">{box.name}</text>
                   <view className="BoxStatusContainer">
@@ -119,26 +112,19 @@ export function Dashboard({ onNavigate }: DashboardProps) {
             <view className="BoxSensorsRow">
               <view className="SensorCol">
                 <view className="SensorIconContainer WaterBg">
-                  <view className="WaterDropIcon" />
+                  <image src={iconWater} className="SensorIcon" />
                 </view>
                 <text className="SensorValue">{box.water}</text>
               </view>
               <view className="SensorCol">
                 <view className="SensorIconContainer SproutBg">
-                  <view className="SproutIcon">
-                    <view className="SproutStem" />
-                    <view className="SproutLeafLeft" />
-                    <view className="SproutLeafRight" />
-                  </view>
+                  <image src={iconPlant} className="SensorIcon" />
                 </view>
                 <text className="SensorValue">{box.sprout}</text>
               </view>
               <view className="SensorCol">
                 <view className="SensorIconContainer TempBg">
-                  <view className="TempIcon">
-                    <view className="TempBulb" />
-                    <view className="TempCircle" />
-                  </view>
+                  <image src={iconTemp} className="SensorIcon" />
                 </view>
                 <text className="SensorValue">{box.temp}</text>
               </view>
