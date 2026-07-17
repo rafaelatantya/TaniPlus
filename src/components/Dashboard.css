@@ -1,11 +1,12 @@
 .DashboardScreen {
   width: 100%;
   max-width: 412px;
-  min-height: 917px;
+  height: 917px;
   background-color: #F5FDF8;
   display: flex;
   flex-direction: column;
   padding: 24px 20px;
+  box-sizing: border-box;
 }
 
 .DashboardHeader {
@@ -54,20 +55,20 @@
 
 .RecommendationBanner {
   height: 93px;
-  background-color: #ffffff;
+  background-color: #f1f8fc;
   border-radius: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 16px;
   margin-bottom: 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .IconWrapper {
   width: 40px;
   height: 40px;
-  background-color: rgba(34, 150, 83, 0.1);
+  background-color: rgba(91, 117, 219, 0.12);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -88,7 +89,7 @@
 .BulbCircle {
   width: 12px;
   height: 12px;
-  border: 2px solid #229653;
+  border: 2px solid #5b75db;
   border-radius: 50%;
   background-color: #ffffff;
 }
@@ -96,7 +97,7 @@
 .BulbBase {
   width: 6px;
   height: 4px;
-  border: 2px solid #229653;
+  border: 2px solid #5b75db;
   border-top: none;
   background-color: #ffffff;
 }
@@ -110,7 +111,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: #229653;
+  color: #5b75db;
   margin-bottom: 2px;
 }
 
@@ -229,6 +230,7 @@
 
 .BoxListContainer {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 }
@@ -237,7 +239,7 @@
   border-radius: 16px;
   padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 4px 8px rgba(171, 190, 209, 0.4);
   transition: transform 0.15s ease-out;
   animation: fadeInUp 0.4s ease-out both;
 }
