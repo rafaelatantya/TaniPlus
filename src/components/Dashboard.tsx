@@ -12,7 +12,7 @@ import iconTempGreen from '../icon_temp_green.svg';
 import iconTempOrange from '../icon_temp_orange.svg';
 import iconTempGrey from '../icon_temp_grey.svg';
 
-import iconCheck from '../icon_check.svg';
+import iconCheckWhite from '../icon_check_white.svg';
 import iconDanger from '../icon_danger.svg';
 import iconRss from '../icon_rss.svg';
 import './Dashboard.css';
@@ -62,8 +62,8 @@ export function Dashboard({ onNavigate }: DashboardProps) {
       <view className="StatsGrid">
         <view className="StatsRow">
           <view className="StatCard CardGreen">
-            <view className="StatIconContainer">
-              <image src={iconCheck} className="StatCardIcon" />
+            <view className="StatIconContainer StatIconContainerGreen">
+              <image src={iconCheckWhite} className="StatCardIcon" />
             </view>
             <view className="StatTextContainer">
               <text className="StatNumber ColorGreenText">2</text>
@@ -72,7 +72,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           </view>
 
           <view className="StatCard CardOrange">
-            <view className="StatIconContainer">
+            <view className="StatIconContainer StatIconContainerOrange">
               <image src={iconDanger} className="StatCardIcon" />
             </view>
             <view className="StatTextContainer">
@@ -83,7 +83,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         </view>
 
         <view className="StatCardFull CardGrey">
-          <view className="StatIconContainer">
+          <view className="StatIconContainer StatIconContainerGrey">
             <image src={iconRss} className="StatCardIcon" />
           </view>
           <view className="StatTextContainer">

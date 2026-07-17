@@ -178,8 +178,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.25);
   border-radius: 8px;
+}
+
+.StatIconContainerGreen {
+  background-color: #124F2C;
+}
+
+.StatIconContainerOrange {
+  background-color: #8A2408;
+}
+
+.StatIconContainerGrey {
+  background-color: #5F6160;
 }
 
 .StatCardIcon {
