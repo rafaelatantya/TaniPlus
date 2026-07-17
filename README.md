@@ -22,6 +22,12 @@
   <img alt="CI" src="https://github.com/rafaelatantya/TaniPlus/actions/workflows/ci.yml/badge.svg" />
 </p>
 
+<p align="center">
+  <img src="docs/assets/taniplus-demo.webp" alt="TaniPlus dashboard demo" width="420" />
+</p>
+
+<p align="center"><em>Monitor field conditions, inspect sensor details, and act on clear status insights.</em></p>
+
 ---
 
 ## Inspiration
