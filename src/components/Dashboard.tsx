@@ -11,12 +11,11 @@ export function Dashboard({ onNavigate }: DashboardProps) {
   }, [onNavigate]);
 
   const mockBoxes = [
-    { id: 1, name: 'Box 1 - Kebun Tomat', status: 'Bagus', details: 'Kelembapan tanah optimal (78%)' },
-    { id: 2, name: 'Box 2 - Green House A', status: 'Butuh Perawatan', details: 'Suhu terlalu tinggi (34°C)' },
-    { id: 3, name: 'Box 3 - Sawah Barat', status: 'Bagus', details: 'Kelembapan tanah optimal (75%)' },
-    { id: 4, name: 'Box 4 - Kebun Cabai', status: 'Bagus', details: 'Kadar air cukup' },
-    { id: 5, name: 'Box 5 - Hydroponic B', status: 'Bagus', details: 'Nutrisi level tercukupi' },
-    { id: 6, name: 'Box 6 - Sawah Timur', status: 'Bagus', details: 'Kelembapan tanah optimal (77%)' },
+    { id: 1, name: 'Box 1 - Lahan Tomat', status: 'Perlu Perawatan', water: '65%', sprout: '50%', temp: '29°C' },
+    { id: 2, name: 'Box 2 - Lahan Cabai', status: 'Perlu Perawatan', water: '65%', sprout: '50%', temp: '29°C' },
+    { id: 3, name: 'Box 3 - Lahan Bawang', status: 'Bagus', water: '65%', sprout: '50%', temp: '29°C' },
+    { id: 4, name: 'Box 4 - Lahan Kentang', status: 'Bagus', water: '65%', sprout: '50%', temp: '29°C' },
+    { id: 5, name: 'Box 5 - Lahan Melon', status: 'Error', water: 'Error', sprout: 'Error', temp: 'Error' },
   ];
 
   return (
@@ -51,7 +50,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               </view>
             </view>
             <view className="StatTextContainer">
-              <text className="StatNumber ColorGreenText">4</text>
+              <text className="StatNumber ColorGreenText">2</text>
               <text className="StatLabel ColorGreenText">Wilayah Bagus</text>
             </view>
           </view>
@@ -63,13 +62,13 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               </view>
             </view>
             <view className="StatTextContainer">
-              <text className="StatNumber ColorOrangeText">0</text>
+              <text className="StatNumber ColorOrangeText">2</text>
               <text className="StatLabel ColorOrangeText">Butuh Perawatan</text>
             </view>
           </view>
         </view>
 
-        <view className="StatCardFull CardBlue">
+        <view className="StatCardFull CardGrey">
           <view className="StatIconContainer">
             <view className="RssIcon">
               <view className="RssDot" />
@@ -78,8 +77,8 @@ export function Dashboard({ onNavigate }: DashboardProps) {
             </view>
           </view>
           <view className="StatTextContainer">
-            <text className="StatNumber ColorBlueText">6</text>
-            <text className="StatLabel ColorBlueText">Box Aktif</text>
+            <text className="StatNumber ColorGreyText">1</text>
+            <text className="StatLabel ColorGreyText">Box Error</text>
           </view>
         </view>
       </view>
@@ -92,14 +91,55 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         {mockBoxes.map((box) => (
           <view key={box.id} className="BoxItemCard">
             <view className="BoxItemHeader">
-              <text className="BoxItemName">{box.name}</text>
-              <view className={`BoxStatusTag ${box.status === 'Bagus' ? 'TagGreen' : 'TagOrange'}`}>
-                <text className={`BoxStatusText ${box.status === 'Bagus' ? 'TextGreen' : 'TextOrange'}`}>
-                  {box.status}
-                </text>
+              <view className="BoxItemInfo">
+                <view className="PlantIcon">
+                  <view className="PlantStem" />
+                  <view className="PlantLeafLeft" />
+                  <view className="PlantLeafRight" />
+                </view>
+                <view className="BoxNameAndStatus">
+                  <text className="BoxItemName">{box.name}</text>
+                  <view className="BoxStatusContainer">
+                    <view className={`BoxStatusDot Dot${box.status.replace(/\s+/g, '')}`} />
+                    <text className={`BoxStatusText Text${box.status.replace(/\s+/g, '')}`}>
+                      {box.status}
+                    </text>
+                  </view>
+                </view>
+              </view>
+              <view className="ArrowIcon">
+                <view className="ArrowLine1" />
+                <view className="ArrowLine2" />
               </view>
             </view>
-            <text className="BoxItemDetails">{box.details}</text>
+
+            <view className="BoxSensorsRow">
+              <view className="SensorCol">
+                <view className="SensorIconContainer WaterBg">
+                  <view className="WaterDropIcon" />
+                </view>
+                <text className="SensorValue">{box.water}</text>
+              </view>
+              <view className="SensorCol">
+                <view className="SensorIconContainer SproutBg">
+                  <view className="SproutIcon">
+                    <view className="SproutStem" />
+                    <view className="SproutLeafLeft" />
+                    <view className="SproutLeafRight" />
+                  </view>
+                </view>
+                <text className="SensorValue">{box.sprout}</text>
+              </view>
+              <view className="SensorCol">
+                <view className="SensorIconContainer TempBg">
+                  <view className="TempIcon">
+                    <view className="TempBulb" />
+                    <view className="TempCircle" />
+                  </view>
+                </view>
+                <text className="SensorValue">{box.temp}</text>
+              </view>
+            </view>
           </view>
         ))}
       </scroll-view>
