@@ -87,7 +87,7 @@
 }
 
 .BannerTitle {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: #5b75db;
@@ -95,7 +95,7 @@
 }
 
 .BannerBody {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #474747;
@@ -667,5 +667,4 @@
   font-weight: 600;
   color: #1C1C1E;
 }
-
 
