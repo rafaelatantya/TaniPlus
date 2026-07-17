@@ -64,8 +64,8 @@
 .TabContainer {
   width: 368px;
   height: 40px;
-  background-color: #f7f8f9;
-  border-radius: 20px;
+  background-color: rgba(180, 183, 181, 0.5);
+  border-radius: 8px;
   display: flex;
   flex-direction: row;
   padding: 4px;
@@ -75,7 +75,7 @@
 .TabActive {
   flex: 1;
   background-color: #ffffff;
-  border-radius: 16px;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,7 +135,7 @@
 .PrimaryButton {
   width: 368px;
   height: 45px;
-  background: linear-gradient(90deg, #2FD173 0%, #229653 100%);
+  background: linear-gradient(180deg, #2FD173 0%, #29b865 100%);
   border-radius: 8px;
   display: flex;
   justify-content: center;
