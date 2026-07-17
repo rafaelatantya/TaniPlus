@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/taniplus-demo.webp" alt="TaniPlus dashboard demo" width="760" />
+  <img src="docs/assets/taniplus-demo-landscape.webp" alt="TaniPlus dashboard demo" width="560" />
 </p>
 
 <p align="center"><em>Monitor field conditions, inspect sensor details, and act on clear status insights.</em></p>
