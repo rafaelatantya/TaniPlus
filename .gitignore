@@ -21,3 +21,6 @@ dist/*.txt
 dist/*.cjs
 *.txt
 
+
+.vercel
+.env*

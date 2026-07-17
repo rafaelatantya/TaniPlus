@@ -36,6 +36,7 @@ button:focus-visible,input:focus-visible { outline:3px solid rgba(47,209,115,.32
 .auth-tabs button { border:0; background:transparent; color:#5c6962; font-weight:600; border-radius:4px; }
 .auth-tabs button.active { color:#05180d; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.1); }
 .auth-form,.settings-form { display:flex; flex-direction:column; gap:18px; }
+.form-error { margin:0; padding:10px 12px; color:#9b2d0c; background:#fee7df; border-radius:8px; font-size:13px; }
 .register-form { gap:24px; }
 .field { display:flex; flex-direction:column; gap:7px; color:#37433d; font-size:14px; font-weight:600; }
 .field input { width:100%; height:48px; padding:0 16px; color:#05180d; background:#fff; border:1px solid var(--border); border-radius:12px; transition:.2s; }
